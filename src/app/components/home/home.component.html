@@ -1,0 +1,29 @@
+<app-artwork-types
+  [types]="types"
+  [currentIndex]="currentTypeIndex"
+  (handleTypeSelect)="setType($event)"
+></app-artwork-types>
+
+<app-artworks-list
+  (loadMore)="loadMore()"
+  [artworks]="artworks"
+></app-artworks-list>
+
+<div class="flex flex-col items-center justify-center py-7">
+  <div
+    *ngIf="loading"
+    class="spinner-border animate-spin inline-block w-4 h-4 border-1 rounded-full"
+    role="status"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <button
+    *ngIf="artworks.length > 0"
+    (click)="loadMore()"
+    class="btn rounded-full"
+    [disabled]="loading"
+  >
+    Load more
+  </button>
+</div>

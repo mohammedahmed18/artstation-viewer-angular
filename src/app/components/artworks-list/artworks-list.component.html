@@ -1,0 +1,10 @@
+<div
+  style="transition: all ease-in-out 0.5s"
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 p-3"
+
+  >
+  <app-artwork-item
+    *ngFor="let artwork of artworks"
+    [artwork]="artwork"
+  ></app-artwork-item>
+</div>

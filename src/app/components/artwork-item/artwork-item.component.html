@@ -1,0 +1,32 @@
+<a 
+[routerLink]="artwork.hide_as_adult && !showAdultContent ? '' : ['/artwork', artwork.hash_id]"
+  class="bg-base-200/25 hover:bg-base-200/50 ease-in-out duration-300 flex flex-col justify-between shadow-xl relative"
+>
+  <img [lazyLoad]="artwork.smaller_square_cover_url" loading="lazy" />
+  <div
+    *ngIf="artwork.hide_as_adult && !showAdultContent"
+    class="artwork-overlay flex flex-col justify-center items-center"
+  >
+    <span class="text-3xl font-light mb-2">Mature Content</span>
+    <button
+      class="btn btn-ghost text-primary-content"
+      (click)="showAdultArtwork($event)"
+      type="button"
+    >
+      Show artwork
+    </button>
+  </div>
+
+  <div
+    *ngIf="!artwork.hide_as_adult || showAdultContent"
+    class="absolute flex w-full h-full p-2 flex-col justify-end artwork-details"
+    [ngClass]="active ? 'opacity-100' : 'opacity-0'"
+    (mouseover)="toggleActive($event)"
+    (mouseout)="toggleActive($event)"
+  >
+    <p class="font-bold text-lg text-white z-[2] whitespace-pre-line">
+      {{ artwork.title }}
+    </p>
+    <app-user-avatar class="z-[2]" [user]="artwork.user"></app-user-avatar>
+  </div>
+</a>

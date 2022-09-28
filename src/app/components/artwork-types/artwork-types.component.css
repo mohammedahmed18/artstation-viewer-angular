@@ -1,0 +1,15 @@
+li.active{
+    background: -webkit-linear-gradient(#8fcbff, #f199ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700 !important;
+}
+
+.bar{
+    height: 3px;
+    background-image: linear-gradient(to bottom ,#a083ef, #7540e0);
+    border-radius: 15px;
+    position: absolute;
+    transition: left ease-in-out 0.4s;
+    bottom: 0;
+}
